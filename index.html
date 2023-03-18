@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Havs Calculator</title>
+</head>
+
+<body>
+    <div class="havsCal">
+        <section class="bg-gray-100 pt-10 pb-20 print:hidden">
+            <form id="havs-calculator" class="block max-w-6xl mx-auto p-10">
+                <div class="clearfix -mx-3">
+                    <div class="md:float-left md:w-1/3 lg:w-1/2 p-3"> <label for="input-tool"
+                            class="text-xl">Tool</label>
+                        <p class="input-help feedback">What tool are you using?</p> <input class="input" id="input-tool"
+                            placeholder="e.g. Hammer drill" autocomplete="off" maxlength="200">
+                    </div>
+                    <div class="sm:float-left sm:w-1/2 md:w-1/3 lg:w-1/4 p-3"> <label for="input-output"
+                            class="text-xl">Output (m/s²)</label>
+                        <p class="input-help feedback">What vibration level?</p> <input class="input" type="number"
+                            id="input-output" placeholder="10" autocomplete="off" min="0" maxlength="5" step="0.5">
+                    </div>
+                    <div class="sm:float-left sm:w-1/2 md:w-1/3 lg:w-1/4 p-3"> <label for="input-minutes"
+                            class="text-xl">Minutes</label>
+                        <p class="input-help feedback">How long will you use it?</p> <input class="input" type="number"
+                            id="input-minutes" placeholder="30" autocomplete="off" min="0" maxlength="5">
+                    </div>
+                </div>
+                <div class="text-right"><button type="submit" class="btn btn-green mx-0">Calculate</button></div>
+            </form>
+        </section>
+        <section id="result-section" class="max-w-6xl mx-auto px-10 -mt-20 print:hidden">
+            <div id="calc-result" class="bg-gray-200 rounded p-10">
+                <div class="text-gray-700 w-full flex flex-col"> <span
+                        class="uppercase font-bold text-gray-500">Result</span>
+                    <h3 class="font-bold text-3xl"><span id="result-title">0%</span></h3>
+                    <div class="mt-auto py-5">
+                        <div class="p-1 bg-gray-300 rounded-full">
+                            <div id="progress-bar" class="progress-bar" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                    <p class="pb-2">A <span id="result-tool">tool</span> with a vibration output of <span
+                            id="result-output">0</span>m/s² reaches the EAV (Exposure Action Value) in <span
+                            id="result-eav">0hrs:0mins</span> and the ELV (Exposure Limit Value) in <span
+                            id="result-elv">0hrs:0mins</span>.</p>
+                    <p><b><span id="result-text">Let's get started, use the calculator to find out your vibration
+                                exposure!</span></b></p>
+                </div>
+            </div>
+        </section>
+        <div class="max-w-6xl mx-auto p-10 py-20 print:py-10">
+            <h2 class="font-bold text-3xl">HAVS Register</h2>
+            <p class="py-3">Add to the HAVS register using the <a href="#">calculator</a>. This register is a record of
+                your vibration exposure across multiple tools, so you know when you need to take action.</p>
+            <div class="clearfix py-5 form -mx-3">
+                <div class="float-left w-2/3">
+                    <div class="p-3"> <label for="register-name">Name</label> <input type="text"
+                            class="input bg-gray-100" id="register-name" placeholder="Full name" autocomplete="off"
+                            maxlength="200"> </div>
+                </div>
+                <div class="float-left w-1/3">
+                    <div class="p-3"> <label for="register-date">Date</label> <input type="date"
+                            class="input bg-gray-100" id="register-date" autocomplete="off" maxlength="10"> </div>
+                </div>
+            </div>
+            <div class="overflow-x-scroll">
+                <table id="havs-list" class="table-striped right-2 right-3 right-4 border border-gray-300 mt-10">
+                    <thead>
+                        <tr>
+                            <th>Tool</th>
+                            <th>Output</th>
+                            <th>Minutes</th>
+                            <th>Points</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Waiting for your <a href="#">first exposure</a>...</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <h4 class="text-right text-2xl font-bold py-3 mb-10">Total Points: <span id="havs-total-points">0</span>
+            </h4>
+            <div id="calc-havs-alert" class="alert alert-success"> <strong>Looking good!</strong> So far, you're under
+                the exposure action value - keep working safely. </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
